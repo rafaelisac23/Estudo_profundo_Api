@@ -1,0 +1,24 @@
+Arquitetura MVC
+
+M - Model
+
+- É uma comunicação direta com o banco
+
+exemplo:
+
+-> requisição Post -> Rota -> Controller
+--> Controller recebeu requisição
+---> Validar os dados
+----> Manda os dados validados para o Model
+-----> Controller pega a resposta do model e prepara a resposta da requisição
+
+Em APIs REST o view muita das vezes não é necessario  
+encaixe do VIEW
+------> "PODE"
+
+V - View
+-Responsavel pela parte visual
+
+C - Controller
+
+- Responsavel por pegar as informações que foram recebidas , redistribuir pra cada lugar que precisa processar e pega o resultado e manda pro usuario
