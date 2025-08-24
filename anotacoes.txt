@@ -31,3 +31,10 @@ uma adção ao MVC
 o que é o Services no MVC?
 
 um local intermediario entre o controller e o model
+
+
+-- Autenticação e autorização
+
+Autenticação -> e tipo a parte que voce apresenta uma informação e ele sabe quem voce é
+
+autorização -> se essa informação da Autenticação estiver no banco ele te autoriza 

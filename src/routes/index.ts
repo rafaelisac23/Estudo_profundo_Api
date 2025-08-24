@@ -4,13 +4,14 @@ import {
   deleteContactController,
   getContactsController,
 } from "../controllers/contact";
+import { privateRequest } from "../middlewares/auth";
 
 const router = express.Router();
 
-router.post("/contato", createContactController);
+router.post("/contato", privateRequest, createContactController);
 
 router.get("/contatos", getContactsController);
 
-router.delete("/contato", deleteContactController);
+router.delete("/contato", privateRequest, deleteContactController);
 
 export default router;
