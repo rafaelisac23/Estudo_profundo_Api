@@ -22,3 +22,12 @@ V - View
 C - Controller
 
 - Responsavel por pegar as informações que foram recebidas , redistribuir pra cada lugar que precisa processar e pega o resultado e manda pro usuario
+
+
+## Services
+
+uma adção ao MVC
+
+o que é o Services no MVC?
+
+um local intermediario entre o controller e o model
