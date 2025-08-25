@@ -38,3 +38,53 @@ um local intermediario entre o controller e o model
 Autenticação -> e tipo a parte que voce apresenta uma informação e ele sabe quem voce é
 
 autorização -> se essa informação da Autenticação estiver no banco ele te autoriza 
+
+
+JWT  = JSONWEBTOKEN
+
+-> Autenticação
+
+Pyload = Carga = Gera um Hash com o nosso hash privado
+
+
+-> Autorização
+
+Decifra o Hash (utilizando o hash privado)
+
+
+1- instalar libs
+
+npm i passport-jwt
+npm i -D @types/passport-jwt
+
+npm i JSONWEBTOKEN -> criar e verificar jwt
+
+aparentemente para vocefazer uma validação com o JWT no passport voce precisa 
+fazer o local primeiro misturado ao JWT
+
+
+//Observação 
+
+ele vai ficar dando B.O por causa do .env
+
+baixe o dotenv
+
+ai apartir dai temos duas opções : 
+
+opção 1: 
+
+Criar um arquivo config/env.ts só pra carregar o dotenv:
+
+// src/config/env.ts
+import dotenv from "dotenv";
+dotenv.config();
+
+Aí, no seu server.ts:
+
+import "./config/env"; // garante que o .env será carregado antes de tudo
+
+ou : 
+
+Opção 2 :
+
+Ficar inportando o dot env e odotenv.config() em todos os arquivos

@@ -7,10 +7,21 @@ import {
 import { privateRequest } from "../middlewares/auth";
 import { localStrategyAuth } from "../libs/passport-local";
 import { bearerStrategyAuth } from "../libs/passport-bearer";
+import { jwtStrategyAuth } from "../libs/passport-jwt";
+import multer from "multer";
+
+const upload = multer({
+  dest: "uploads/",
+});
 
 const router = express.Router();
 
-router.post("/contato", privateRequest, createContactController);
+router.post(
+  "/contato",
+  privateRequest,
+  upload.single("photo"),
+  createContactController
+);
 
 router.get("/contatos", getContactsController);
 
@@ -27,7 +38,8 @@ router.get("/private", bearerStrategyAuth, (req, res) => {
   res.json({ msg: "Acessou" });
 });
 
-router.get("/ping", (req, res) => {
-  res.json({ pong: true });
+router.get("/privatejwt", jwtStrategyAuth, (req, res) => {
+  res.json({ msg: "Acessou JWT" });
 });
+
 export default router;

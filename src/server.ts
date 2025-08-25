@@ -1,3 +1,4 @@
+import "./config/env";
 import express from "express";
 import helmet from "helmet";
 import router from "./routes";
@@ -5,6 +6,7 @@ import path from "path";
 import passport from "passport";
 import { localStrategy } from "./libs/passport-local";
 import { bearerStrategy } from "./libs/passport-bearer";
+import { jwtStrategy } from "./libs/passport-jwt";
 
 const server = express();
 
@@ -16,6 +18,7 @@ server.use(express.static(path.join(__dirname, "../public")));
 //seja antes das rotas para iniciar com o servidor
 passport.use(localStrategy);
 passport.use(bearerStrategy);
+passport.use(jwtStrategy);
 server.use(passport.initialize());
 
 server.use("/", router);
