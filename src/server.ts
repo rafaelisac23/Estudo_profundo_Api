@@ -4,6 +4,7 @@ import router from "./routes";
 import path from "path";
 import passport from "passport";
 import { localStrategy } from "./libs/passport-local";
+import { bearerStrategy } from "./libs/passport-bearer";
 
 const server = express();
 
@@ -14,6 +15,7 @@ server.use(express.static(path.join(__dirname, "../public")));
 
 //seja antes das rotas para iniciar com o servidor
 passport.use(localStrategy);
+passport.use(bearerStrategy);
 server.use(passport.initialize());
 
 server.use("/", router);
